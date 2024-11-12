@@ -1,0 +1,11 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
