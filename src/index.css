@@ -8,4 +8,42 @@
 
 @tailwind components;
 
+@layer components {
+  .card {
+    perspective: 800px;
+  }
+
+  .card__content {
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transform: rotateY(-180deg);
+    animation: 1.5s flip-card forwards ease-in-out;
+  }
+
+  .card__front,
+  .card__back {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    backface-visibility: hidden;
+  }
+
+  .card__front {
+    transform: rotateX(0deg);
+  }
+  .card__back {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+
+  @keyframes flip-card {
+    0% {
+      transform: rotateY(-180deg);
+    }
+    100% {
+      transform: rotateY(0);
+    }
+  }
+}
+
 @tailwind utilities;
